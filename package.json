@@ -1,0 +1,35 @@
+{
+  "name": "homebridge-nanit-sound-light",
+  "version": "1.0.0",
+  "description": "Homebridge plugin for the Nanit Sound + Light machine (local LAN WebSocket + Cloud Relay, RGBW Night Light, Sound Machine & Volume, Clock Display, Temperature, Humidity, and Battery)",
+  "main": "src/index.js",
+  "keywords": [
+    "homebridge-plugin",
+    "homebridge",
+    "nanit",
+    "sound-and-light",
+    "sound-machine",
+    "night-light",
+    "homekit"
+  ],
+  "scripts": {
+    "test": "node test/test-protobuf.js"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "homebridge": ">=1.6.0 || ^2.0.0-beta.0"
+  },
+  "dependencies": {
+    "ws": "^8.18.0"
+  },
+  "author": "aldrincb",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aldrincb/homebridge-nanit-sound-light.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aldrincb/homebridge-nanit-sound-light/issues"
+  },
+  "homepage": "https://github.com/aldrincb/homebridge-nanit-sound-light#readme"
+}

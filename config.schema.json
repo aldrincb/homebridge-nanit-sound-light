@@ -1,0 +1,95 @@
+{
+  "pluginAlias": "NanitSoundLight",
+  "pluginType": "platform",
+  "singular": true,
+  "headerDisplay": "Control your **Nanit Sound + Light** machine in Apple HomeKit with local LAN WebSocket control (`wss://<ip>:442`) + Nanit Cloud Relay fallback.",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "title": "Platform Name",
+        "type": "string",
+        "default": "Nanit Sound + Light",
+        "required": true
+      },
+      "email": {
+        "title": "Nanit Account Email",
+        "type": "string",
+        "description": "Email address for your Nanit account."
+      },
+      "password": {
+        "title": "Nanit Account Password",
+        "type": "string",
+        "x-schema-form": {
+          "type": "password"
+        },
+        "description": "Password for your Nanit account."
+      },
+      "mfaCode": {
+        "title": "2FA / MFA Verification Code (First Login Only)",
+        "type": "string",
+        "description": "If your Nanit account uses 2FA, leave this blank on first restart to trigger the code, then paste the 6-digit code here and restart once. Tokens are persisted automatically afterward."
+      },
+      "soundControlType": {
+        "title": "Sound Machine Control Type in Apple Home",
+        "type": "string",
+        "default": "fan",
+        "oneOf": [
+          { "title": "Fan (On/Off + 0-100% Volume Slider)", "enum": ["fan"] },
+          { "title": "Lightbulb (On/Off + 0-100% Volume Slider)", "enum": ["lightbulb"] },
+          { "title": "Switch (On/Off Only)", "enum": ["switch"] }
+        ]
+      },
+      "exposeSound": {
+        "title": "Expose Sound Machine Control",
+        "type": "boolean",
+        "default": true
+      },
+      "exposeClockSwitch": {
+        "title": "Expose Clock Display Switch",
+        "type": "boolean",
+        "default": true
+      },
+      "exposeSensors": {
+        "title": "Expose Temperature, Humidity & Battery Sensors",
+        "type": "boolean",
+        "default": true
+      },
+      "exposeTrackSwitches": {
+        "title": "Expose Individual Sound Track Switches",
+        "type": "boolean",
+        "default": false
+      },
+      "devices": {
+        "title": "Manual Device Overrides (Optional — Auto-Discovered via LAN & Cloud)",
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "title": "Device Name",
+              "type": "string",
+              "default": "Nanit Sound + Light"
+            },
+            "speakerUid": {
+              "title": "Speaker UID (e.g. L101FSN0000000)",
+              "type": "string"
+            },
+            "ipAddress": {
+              "title": "Local LAN IP Address (e.g. 192.168.1.50)",
+              "type": "string"
+            }
+          }
+        }
+      },
+      "accessToken": {
+        "title": "Advanced: Nanit Access Token Override",
+        "type": "string"
+      },
+      "refreshToken": {
+        "title": "Advanced: Nanit Refresh Token Override",
+        "type": "string"
+      }
+    }
+  }
+}
